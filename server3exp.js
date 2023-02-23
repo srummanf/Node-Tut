@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var apth = require('path');
 var port = 3000;
 
 // Creating Server
@@ -13,12 +14,20 @@ app.use('/cssFiles', express.static(__dirname + '/styles'))
 
 
 // Creating Homepage Route
+// app.get('/', function (req, res) {
+//     res.send('Hello World rumi');
+// });
+
+// Creating Homepage Route using html file
 app.get('/', function (req, res) {
-    res.send('Hello World rumi');
+    res.sendFile(__dirname + '/index.html');
+    // res.sendFile(__dirname + 'index.html',{root:path.join(__dirname, './foldername')}); if your html file lies in a folder
 });
 
 // Creating Routes
 app.get('/rumi', function (req, res) {
     res.send('Hi rumi');
 });
+
+
 
