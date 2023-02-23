@@ -7,6 +7,11 @@ app.listen(port, function () {
     console.log('Server is running on port 3000');
 });
 
+// Including Static Files
+app.use('/cssFiles', express.static(__dirname + '/styles'))
+// http://localhost:3000/cssFiles/styles.css ==> will show my css code
+
+
 // Creating Homepage Route
 app.get('/', function (req, res) {
     res.send('Hello World rumi');
@@ -16,3 +21,4 @@ app.get('/', function (req, res) {
 app.get('/rumi', function (req, res) {
     res.send('Hi rumi');
 });
+
