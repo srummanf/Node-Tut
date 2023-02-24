@@ -18,10 +18,12 @@ app.get('/', function (req, res) {
     res.sendFile(__dirname + '/files/inputform.html');
 });
 
-// Output :
-// htt// app.get('/', function (req, res) {
+// app.get('/', function (req, res) {
 //     res.end(JSON.stringify(req.query));
-// });p://localhost:3000/?firstName=Rumman
+// });
+
+// Output :
+// p://localhost:3000/?firstName=Rumman
 // {"firstName":"Rumman"} will be shown on page
 
 
@@ -30,5 +32,11 @@ app.get('/', function (req, res) {
 app.post('/', function (req, res) {
     // res.sendFile(__dirname + 'files/inputform.html');
     res.end(JSON.stringify(req.body));
+
+    // if(req.body.username == 'admin')
+    // {
+    //     ................................................................
+    // }
+
 });
 
