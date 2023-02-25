@@ -13,9 +13,6 @@ app.get('/', function (req, res) {
 });
 
 
-
-
-
 app.get('/myFirstRoute', function (req, res) {
     res.end("Welcome to nested routing!");
 });
@@ -28,4 +25,19 @@ router.get('/heyTherefirstroute', function (req, res) {
 
 router.get('/heyTheresecondtroute', function (req, res) {
     res.end("Hey there from second route! Keep Quacking");
+});
+
+
+
+app.use('/users',router);
+
+router.get('/:username', function (req, res) {
+    res.end(JSON.stringify(req.params));
+});
+
+// http://localhost:3000/users/rumman
+// {"username":"rumman"}
+
+router.get('/:username/:course', function (req, res) {
+    res.end(JSON.stringify(req.params));
 });
